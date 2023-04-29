@@ -52,7 +52,7 @@ body{
     margin-left: 50px;
     margin-top: 30px;
 }
-#featured-homepage{
+h1{
     margin-left: 100px;
     margin-top: 80px;
 }
@@ -60,7 +60,7 @@ body{
     list-style-type: none;
 }
 li{
-    margin-top: 50px;
+    margin-top: 30px;
     display: flex;
 
 }
@@ -81,4 +81,32 @@ table{
     border-color: #7653e9;
     margin: auto;
     width: 300px;
+}
+#main li{
+    margin-left: 100px;
+    text-transform: capitalize;
+}
+#form-div{
+    background-color: rgb(107, 144, 253);
+    width: 400px;
+    height: 500px;
+    position: absolute;
+    left: 40%;
+    top: 15%;
+    margin: auto;
+    border-radius: 3%;
+}
+#form{
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+input{
+    width: 55%;
+    margin: auto;
+    margin-top: 10px;
+}
+label{
+    margin-top: 40px;
 }
