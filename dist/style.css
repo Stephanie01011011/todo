@@ -110,3 +110,10 @@ input{
 label{
     margin-top: 40px;
 }
+button{
+    width: 20%;
+    color: black;
+    background-color: white;
+    height: 20px;
+    margin: auto;
+}

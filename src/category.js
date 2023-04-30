@@ -1,9 +1,11 @@
 let projectCategories = ["default"];
 
+import { createDefaultTable } from "./tables"
+
 function addCategory(){
     let cat = prompt("What is the category name? ", "Category");
     projectCategories.push(cat);
-    console.log(projectCategories);
+    
 
    
     
@@ -28,5 +30,6 @@ export function viewCat(){
 str += '</ul>';
 document.getElementById("main").innerHTML = str;
 
+main.querySelectorAll("li")[0].addEventListener("click", createDefaultTable);
 }
 export default addCategory;

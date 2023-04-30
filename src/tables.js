@@ -1,7 +1,8 @@
+import { createTodo, getTodos} from "./addList"
 
 function getObject(obj){
     let list = obj;
-    console.log(list);
+    
    // createTable(list);
     
 }
@@ -36,5 +37,32 @@ function getData(table, list){
         row.appendChild(th);
       }
 }*/
+let todos = getTodos();
+console.log(todos);
+console.log(todos[0]);
+console.log(todos[0][0]);
+export function createDefaultTable(){
+    
+    let body = document.getElementById("main");
+    body.innerHTML = "";
+    let textString = "<h1>Default Project</h1><ul>";
+    
+    
+   
+    
+    for(let i = 0; i < todos.length; i++){
+        console.log(todos[i][0]);
+        textString += "<li>" + todos[i][0]+ "</li>";
+
+    }
+    textString += "</ul>";
+    body.innerHTML = textString;
+
+    
+}
+
+export function createOtherTables(){
+
+}
 
 export default getObject;

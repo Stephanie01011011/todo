@@ -1,16 +1,28 @@
+import { Todo } from "./index.js";
+let todos = new Array;
+let Categories = ["default"];
 let form = document.createElement("form");
+let formDiv = document.createElement("div");
+let menu = document.getElementById("side");
+let main = document.getElementById("main");
+let catInput = document.createElement("input");
+let taskInput = document.createElement("input");
+let priorityInput = document.createElement("input");
+let dueInput = document.createElement("input");
+let descriptInput = document.createElement("input");
+let List = []
 function addListForm(){
     //create the popup form container
     let body = document.getElementById("body");
-    let formDiv = document.createElement("div");
+    
     formDiv.id = "form-div";
     body.appendChild(formDiv);
 
     //style the transparent background
-    let menu = document.getElementById("side");
+    
     menu.style.opacity ="35%";
     
-    let main = document.getElementById("main");
+    
     main.style.opacity = "85%";
     main.style.backgroundColor = "black";
 
@@ -24,7 +36,7 @@ function addListForm(){
     taskLabel.setAttribute("for", "task");
     taskLabel.textContent = "Task: "
     form.appendChild(taskLabel);
-    let taskInput = document.createElement("input");
+    
     taskInput.setAttribute("name", "task");
     taskInput.setAttribute("id", "task");
     taskInput.setAttribute("type", "text");
@@ -35,7 +47,7 @@ function addListForm(){
     priorityLabel.setAttribute("for", "priority");
     priorityLabel.textContent = "Priority: "
     form.appendChild(priorityLabel);
-    let priorityInput = document.createElement("input");
+    
     priorityInput.setAttribute("name", "priority");
     priorityInput.setAttribute("id", "priority");
     priorityInput.setAttribute("type", "text");
@@ -46,18 +58,19 @@ function addListForm(){
     catLabel.setAttribute("for", "category");
     catLabel.textContent = "Project Category: "
     form.appendChild(catLabel);
-    let catInput = document.createElement("input");
+    
     catInput.setAttribute("name", "category");
     catInput.setAttribute("id", "category");
     catInput.setAttribute("type", "text");
-    form.appendChild(catInput);
 
+    form.appendChild(catInput);
+    
     //fourth field
     let dueLabel = document.createElement("label");
     dueLabel.setAttribute("for", "due");
     dueLabel.textContent = "Due Date: "
     form.appendChild(dueLabel);
-    let dueInput = document.createElement("input");
+    
     dueInput.setAttribute("name", "due");
     dueInput.setAttribute("id", "due");
     dueInput.setAttribute("type", "date");
@@ -68,7 +81,7 @@ function addListForm(){
     descriptLabel.setAttribute("for", "description");
     descriptLabel.textContent = "Description: "
     form.appendChild(descriptLabel);
-    let descriptInput = document.createElement("input");
+    
     descriptInput.setAttribute("name", "description");
     descriptInput.setAttribute("id", "description");
     descriptInput.setAttribute("type", "text");
@@ -76,13 +89,40 @@ function addListForm(){
 
     //submit button
     let submitBtn = document.createElement("button");
-    submitBtn.setAttribute("type", "submit");
+    submitBtn.setAttribute("type", "button");
+    submitBtn.textContent = "Add";
     form.appendChild(submitBtn);
+    submitBtn.addEventListener("click", cat);
    
 }
 
+
+function cat(){
+    Categories.push(catInput.value);
+    //createTable(Categories);
+    createTodo();
+    closeForm();
+}
+
+export function createTodo(){
+    
+    let newTodo = new Todo(taskInput.value, descriptInput.value, dueInput.value, priorityInput.value, catInput.value));
+    List.push(newTodo);
+    
+} 
+
+export function getTodos(){
+    return List;
+}
+
+
+
+//create an exit button and use this function to close form
 function closeForm(){
-    form.style.display = "none";
+    formDiv.style.display = "none";
+    menu.style.opacity ="100%";
+    main.style.opacity = "100%";
+    main.style.backgroundColor = "white";
 }
 
 export default addListForm;

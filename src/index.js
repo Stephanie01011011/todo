@@ -3,25 +3,20 @@ import addCategory from "./category";
 import { viewCat } from "./category";
 import createHome from "./homepage";
 import addListForm from "./addList";
-function Todo(title, description, dueDate, priority) {
+export function Todo(title, description, dueDate, priority, category) {
     return {
         title,
         description,
         dueDate,
         priority,
+        category
     };
 }
 
 
 
-let list1 = new Todo("Gym", "Go to gym", "12/05/2023", "low")
-
 let defaultProjects = [];
 
-
-
-
-defaultProjects.push(list1);
 
 window.addEventListener("load", getObject(defaultProjects[0]));
 
